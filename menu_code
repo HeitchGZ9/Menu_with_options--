@@ -1,0 +1,128 @@
+#import system name and sleep time###
+from time import sleep
+from os import system, name
+#Function to clean screem###
+def clear():
+  
+    ### for windows###
+    if name == 'nt':
+        _ = system('cls')
+  
+    # for mac and linux(here, os.name is 'posix')###
+    else:
+        _ = system('clear')
+        
+       ##start of program with introduction banner### 
+print("""       
+                       *
+                      ***
+                     *****
+                   *********
+                  ***********
+            Welcome to your credit 
+             interest calculator.
+            Please Choose an option:
+                  ***********  
+                   *********
+                     *****
+                      ***
+                       *""")
+sleep(1)
+ans=True
+month = 0
+
+###Menu display###
+while ans:
+    print("1) Calculate Minimum Repayment Plan.")
+    sleep(1)
+    print("2) Calculate Overpayment Plan.")
+    sleep(1)
+    print("q) Quit")
+    sleep(1)
+    ans=input("Please, Choose your option:")
+    
+    ###if statement with different menu posibilities###
+    ###option number 1###
+    if ans == "1":
+        clear()
+        
+    ###inputs###    
+    
+        print("You selected 'Calculate Minumun Repayment Plan'")
+        sleep(1)
+        print("Let me help you with that!")
+        sleep(2)
+        balance = float(input("Please, enter your balance:"))
+        interest_rate = float(input("Please, enter your interest rate:"))
+        sleep(1)
+        
+        ###loop to calculate the month payment###
+        
+        while balance >= 10.0:
+            minimun_pay = balance *.01 
+            interest = ((balance * interest_rate)/100)/12
+            montly_pay = minimun_pay + interest
+            month +=1
+            print("Month", month, "Balance:", round(balance,2)  ,"Payment with interest:" , round( montly_pay, 2))
+            balance -= minimun_pay
+            sleep(1)    
+            clear()
+        print("last payment of :", round(balance , 2))
+        sleep(1)
+        print("Thanks for you interest")
+        sleep(1)
+        print("See you soon")
+        break
+        
+ ###option number 2###   
+
+    elif ans == "2":
+        clear()
+        print("You selected 'Calculate Overpayment Plan'")
+        sleep(1)
+        print("Let me help you with that!")
+        sleep(1)
+        
+        ###inputs###
+        
+        balance = float(input("Please, enter your balance:"))
+        interest_rate = float(input("Please, enter your interest rate:"))
+        month_statement = float((input("Please, How much would you like to pay pe month?")))
+        sleep(1)
+        
+        ###loop to calculate the montly payment###
+        
+        while balance >= 10.0:
+            interest = ((balance * interest_rate)/100)/12
+            montly_pay = month_statement + interest
+            month +=1
+            print("Month", month, "Balance:", round(balance,2)  ,"Payment with interest:" , round( montly_pay, 2))
+            balance -= month_statement
+            sleep(1) 
+            clear()
+        print("last payment of :", balance)
+        sleep(1)
+        print("Thanks for you interest")
+        sleep(1)
+        print("See you soon")
+        break
+
+   ###quit###     
+    elif ans == "q":
+        clear()
+        sleep(1)
+        print("No worries, I hope to see you again soon!")
+        sleep(1)
+        print("Bye by now!")
+        break
+        
+   ###wrong input###     
+    elif ans !="":
+        clear()
+        sleep(1)
+        print("Oups! This is a wrong option, try again please!")
+        sleep(1)
+        print("I'll give you your options again:")
+        sleep(1)
+        
+    
