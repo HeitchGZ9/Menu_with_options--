@@ -87,7 +87,7 @@ while ans:
         
         balance = float(input("Please, enter your balance:"))
         interest_rate = float(input("Please, enter your interest rate:"))
-        month_statement = float((input("Please, How much would you like to pay pe month?")))
+        month_statement = float((input("Please, How much would you like to pay per month?")))
         sleep(1)
         
         ###loop to calculate the montly payment###
