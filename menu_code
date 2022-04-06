@@ -94,8 +94,10 @@ while ans:
         
         interest = ((balance * interest_rate)/100)/12
         monthly_pay = month_statement + interest
-        month +=1
-        while balance > monthly_pay:   
+        while balance > monthly_pay:
+            month +=1
+            interest = ((balance * interest_rate)/100)/12
+            monthly_pay = month_statement + interest
             print("Month", month, "Balance:", round(balance,2)  ,"Payment with interest:" , round( monthly_pay, 2))
             balance -= month_statement
             sleep(1) 
