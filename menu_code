@@ -1,3 +1,5 @@
+#!/bin/python3
+
 #import system name and sleep time###
 from time import sleep
 from os import system, name
